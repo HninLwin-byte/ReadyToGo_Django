@@ -1,0 +1,84 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"rel="nofollow" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Document</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: Arial;
+      padding: 20px;
+      background: #f1f1f1;
+    }
+    
+    .header {
+      padding: 2px;
+      font-size: 40px;
+      text-align: center;
+      background: gray;
+    }
+    
+    .leftcolumn {   
+      float: left;
+      width: 100%;
+    }
+    
+    .card {
+       background-color: gray;
+       padding: 20px;
+       margin-top: 20px;
+    }
+    
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    
+    @media screen and (max-width: 800px) {
+      .leftcolumn, .rightcolumn {   
+        width: 100%;
+        padding: 0;
+      }
+    }
+    </style>
+</head>
+<body>
+<div class='card'>
+<h1 class="text-center">Kris's Blog</h1>
+</div>
+<div class='row' >
+  <div class='leftcolumn'>
+    {% for post in posts %}
+    <div class='card'>
+      <div class="card-padding">
+      <h1>{{post.title}}</h1>
+      <p>{{post.body}}</p>
+      <h5>{{post.created_at}}</h5>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+
+</div>
+<div class="container">
+  <h2>Card Image</h2>
+  <p>Image at the top (card-img-top):</p>
+  <div class="card" style="width:400px">
+    <img class="card-img-top" src="pp1.png" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">John Doe</h4>
+      <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+      <a href="#" class="btn btn-primary">See Profile</a>
+    </div>
+  </div>
+<a href="{% url 'home' %}">Home</a>
+</body>
+</html>
